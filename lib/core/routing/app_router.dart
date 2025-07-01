@@ -1,6 +1,6 @@
-import 'package:ecommerce_app_omar/core/routing/routes.dart';
-import 'package:ecommerce_app_omar/features/login/ui/login_screen.dart';
-import 'package:ecommerce_app_omar/features/onboarding/onboarding_screen.dart';
+import 'package:doctor_app/core/routing/routes.dart';
+import 'package:doctor_app/features/login/ui/login_screen.dart';
+import 'package:doctor_app/features/onboarding/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {
@@ -11,14 +11,15 @@ class AppRouter {
       case Routes.loginScreen:
         return MaterialPageRoute(builder: (_) => const LoginScreen());
       default:
-        return MaterialPageRoute(builder: (_) =>Scaffold(
-          appBar: AppBar(
-            title: const Text('Unknown Route'),
-          ),
-          body:  Center(
-            child: Text('No route defined for ${settings.name}'),
-          ),
-        ));
+        return MaterialPageRoute(
+            builder: (_) => Scaffold(
+                  appBar: AppBar(
+                    title: const Text('Unknown Route'),
+                  ),
+                  body: Center(
+                    child: Text('No route defined for ${settings.name}'),
+                  ),
+                ));
     }
   }
 }
