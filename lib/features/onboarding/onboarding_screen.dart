@@ -29,7 +29,7 @@ class OnboardingScreen extends StatelessWidget {
                         style: TextStyles.font13GrayRegular,
                         textAlign: TextAlign.center,
                       ),
-                      SizedBox(height: 15.h,), 
+                      SizedBox(height: 30.h,), 
                       const GetStartedButton()
                     ],
                   )
