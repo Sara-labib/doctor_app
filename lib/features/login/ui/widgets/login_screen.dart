@@ -1,7 +1,7 @@
 import 'package:doctor_app/core/helpers/spacing.dart';
-import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:doctor_app/core/widgets/app_text_button.dart';
+import 'package:doctor_app/features/home/ui/home_screen.dart';
 import 'package:doctor_app/features/login/logic/cubit/login_cubit.dart';
 import 'package:doctor_app/features/login/ui/widgets/dont_have_account_text.dart';
 import 'package:doctor_app/features/login/ui/widgets/email_and_password.dart';
@@ -52,7 +52,11 @@ class LoginScreen extends StatelessWidget {
                     AppTextButton(
                         onPressed: () {
                           validateThenDoLogin(context);
-                          Navigator.pushNamed(context, Routes.homeScreen);
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const HomeScreen()),
+                          );
                         },
                         textButton: "Login",
                         textStyle: TextStyles.font16WhiteSemiBold),
