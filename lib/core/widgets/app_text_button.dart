@@ -44,7 +44,7 @@ class AppTextButton extends StatelessWidget {
             Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50.h),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           textButton,
           style: textStyle,

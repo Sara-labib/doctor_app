@@ -1,0 +1,19 @@
+import 'package:doctor_app/features/home/logic/cubit/home_state.dart';
+import 'package:doctor_app/features/home/repos/home_repo.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class HomeCubit extends Cubit<HomeState> {
+  final HomeRepo _homeRepo;
+  HomeCubit(this._homeRepo) : super(const HomeState.initial());
+
+  void getSpecialization() async {
+    emit(const HomeState.specializationsLoading());
+    final response = await _homeRepo.getSpecialization();
+    response.when(success: (specializationResponseModel) {
+      emit(HomeState.specializationsSuccess(specializationResponseModel));
+    }, failure: (error) {
+      emit(HomeState.specializationsError(
+          error: error.apiErrorModel.message ?? ''));
+    });
+  }
+}

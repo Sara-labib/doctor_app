@@ -7,7 +7,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 void main() async {
   setupGetIt();
   await ScreenUtil.ensureScreenSize();
-  runApp(const DocApp(
+  runApp(DocApp(
     appRouter: AppRouter(),
   ));
 }
