@@ -1,57 +1,22 @@
-import 'package:doctor_app/core/helpers/spacing.dart';
-import 'package:doctor_app/core/theming/styles.dart';
+import 'package:doctor_app/features/home/models/specialization_response_model.dart';
+import 'package:doctor_app/features/home/ui/widgets/doctors_list_view_item.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsListView extends StatelessWidget {
-  const DoctorsListView({super.key});
+  final List<Doctors?>? doctorsList;
+  const DoctorsListView({super.key, this.doctorsList});
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: ListView.builder(
-      itemCount: 10,
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      itemCount: doctorsList?.length,
       itemBuilder: (context, index) {
-        return Container(
-          margin: EdgeInsets.only(bottom: 16.h),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-          ),
-          child: Row(
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(12.0),
-                child: Image.network(
-                  "",
-                  fit: BoxFit.cover,
-                  width: 110.w,
-                  height: 120.h,
-                ),
-              ),
-              horizontalSpace(16.w),
-              Expanded(
-                  child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text("Name",
-                      style: TextStyles.font18DarkBlueBold,
-                      overflow: TextOverflow.ellipsis),
-                  verticalSpace(5),
-                  Text(
-                    "Degree | 0123456345",
-                    style: TextStyles.font12GrayMedium,
-                  ),
-                  verticalSpace(5),
-                  Text(
-                    "Email",
-                    style: TextStyles.font12GrayMedium,
-                  )
-                ],
-              ))
-            ],
-          ),
+        return DoctorsListViewItem(
+          doctorsModel: doctorsList?[index],
         );
       },
-    ));
+    );
   }
 }

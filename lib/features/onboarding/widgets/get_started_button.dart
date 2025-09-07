@@ -1,4 +1,4 @@
-import 'package:doctor_app/core/helpers/extensions.dart';
+import 'package:doctor_app/core/extensions/navigation_extension.dart';
 import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/core/theming/colors.dart';
 import 'package:doctor_app/core/theming/styles.dart';

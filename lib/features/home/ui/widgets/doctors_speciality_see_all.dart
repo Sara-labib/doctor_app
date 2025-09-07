@@ -1,6 +1,8 @@
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:flutter/widgets.dart';
 
+
+
 class DoctorsSpecialitySeeAll extends StatelessWidget {
   const DoctorsSpecialitySeeAll({super.key});
 
@@ -21,3 +23,4 @@ class DoctorsSpecialitySeeAll extends StatelessWidget {
     );
   }
 }
+

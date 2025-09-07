@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_app/features/sign_up/data/repos/sign_up_repo.dart';
-import 'package:doctor_app/features/sign_up/logic/sign_up_state.dart';
+import 'package:doctor_app/features/sign_up/presentation/cubit/sign_up_state.dart';
 
-import '../data/models/sign_up_request_body.dart';
+import '../../data/models/sign_up_request_body.dart';
 
 class SignupCubit extends Cubit<SignupState> {
   final SignupRepo _signupRepo;

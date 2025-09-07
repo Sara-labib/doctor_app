@@ -1,11 +1,11 @@
-import 'package:doctor_app/features/sign_up/logic/sign_up_cubit.dart';
+import 'package:doctor_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:doctor_app/core/helpers/extensions.dart';
+import 'package:doctor_app/core/extensions/navigation_extension.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
 import '../../../../core/theming/styles.dart';
-import '../../logic/sign_up_state.dart';
+import '../cubit/sign_up_state.dart';
 
 class SignupBlocListener extends StatelessWidget {
   const SignupBlocListener({super.key});

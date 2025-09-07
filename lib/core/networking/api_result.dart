@@ -1,4 +1,5 @@
 import 'package:doctor_app/core/networking/api_error_handler.dart';
+import 'package:doctor_app/features/home/models/specialization_response_model.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'api_result.freezed.dart';

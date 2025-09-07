@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:doctor_app/features/sign_up/ui/widgets/sign_up_bloc_listener.dart';
-import 'package:doctor_app/features/sign_up/ui/widgets/sign_up_form.dart';
+import 'package:doctor_app/features/sign_up/presentation/widgets/sign_up_bloc_listener.dart';
+import 'package:doctor_app/features/sign_up/presentation/widgets/sign_up_form.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../../../core/helpers/spacing.dart';
-import '../../../core/theming/styles.dart';
-import '../../../core/widgets/app_text_button.dart';
-import '../../login/ui/widgets/terms_and_conditions_text.dart';
-import '../logic/sign_up_cubit.dart';
-import 'widgets/already_have_account_text.dart';
+import '../../../../core/extensions/spacing_extension.dart';
+import '../../../../core/theming/styles.dart';
+import '../../../../core/widgets/app_text_button.dart';
+import '../../../login/presentation/widgets/terms_and_conditions_text.dart';
+import '../cubit/sign_up_cubit.dart';
+import '../widgets/already_have_account_text.dart';
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({super.key});
@@ -27,16 +27,16 @@ class SignupScreen extends StatelessWidget {
                   'Create Account',
                   style: TextStyles.font24BlueBold,
                 ),
-                verticalSpace(8),
+                8.heightBox,
                 Text(
                   'Sign up now and start exploring all that our app has to offer. We\'re excited to welcome you to our community!',
                   style: TextStyles.font14GrayRegular,
                 ),
-                verticalSpace(36),
+                40.heightBox,
                 Column(
                   children: [
                     const SignupForm(),
-                    verticalSpace(40),
+                    40.heightBox,
                     AppTextButton(
                       textButton: "Create Account",
                       textStyle: TextStyles.font16WhiteSemiBold,
@@ -44,9 +44,9 @@ class SignupScreen extends StatelessWidget {
                         validateThenDoSignup(context);
                       },
                     ),
-                    verticalSpace(16),
+                    16.heightBox,
                     const TermsAndConditionsText(),
-                    verticalSpace(30),
+                    30.heightBox,
                     const AlreadyHaveAccountText(),
                     const SignupBlocListener(),
                   ],
@@ -60,8 +60,9 @@ class SignupScreen extends StatelessWidget {
   }
 
   void validateThenDoSignup(BuildContext context) {
-    if (context.read<SignupCubit>().formKey.currentState!.validate()) {
-      context.read<SignupCubit>().emitSignupStates();
+    final signupCubit = context.read<SignupCubit>();
+    if (signupCubit.formKey.currentState!.validate()) {
+      signupCubit.emitSignupStates();
     }
   }
 }

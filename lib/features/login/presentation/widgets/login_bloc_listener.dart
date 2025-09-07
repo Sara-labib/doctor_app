@@ -1,9 +1,9 @@
-import 'package:doctor_app/core/helpers/extensions.dart';
+import 'package:doctor_app/core/extensions/navigation_extension.dart';
 import 'package:doctor_app/core/routing/routes.dart';
 import 'package:doctor_app/core/theming/colors.dart';
 import 'package:doctor_app/core/theming/styles.dart';
-import 'package:doctor_app/features/login/logic/cubit/login_cubit.dart';
-import 'package:doctor_app/features/login/logic/cubit/login_state.dart';
+import 'package:doctor_app/features/login/presentation/cubit/login_cubit.dart';
+import 'package:doctor_app/features/login/presentation/cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,6 +32,7 @@ class LoginBlocListener extends StatelessWidget {
               Navigator.of(context, rootNavigator: true)
                   .pushReplacementNamed(Routes.homeScreen);
             },
+            error: (error) => setupErrorState(context, error),
           );
         },
         child: const SizedBox.shrink());

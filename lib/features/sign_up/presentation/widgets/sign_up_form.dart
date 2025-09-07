@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:doctor_app/core/helpers/app_regex.dart';
-import 'package:doctor_app/features/sign_up/logic/sign_up_cubit.dart';
-import '../../../../core/helpers/spacing.dart';
+import 'package:doctor_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
+import '../../../../core/extensions/spacing_extension.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
-import '../../../login/ui/widgets/password_validations.dart';
+import '../../../login/presentation/widgets/password_validations.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -60,7 +60,7 @@ class _SignupFormState extends State<SignupForm> {
             },
             controller: context.read<SignupCubit>().nameController,
           ),
-          verticalSpace(18),
+          18.heightBox,
           AppTextFormField(
             hintText: 'Phone number',
             validator: (value) {
@@ -72,7 +72,7 @@ class _SignupFormState extends State<SignupForm> {
             },
             controller: context.read<SignupCubit>().phoneController,
           ),
-          verticalSpace(18),
+          18.heightBox,
           AppTextFormField(
             hintText: 'Email',
             validator: (value) {
@@ -84,7 +84,7 @@ class _SignupFormState extends State<SignupForm> {
             },
             controller: context.read<SignupCubit>().emailController,
           ),
-          verticalSpace(18),
+          18.heightBox,
           AppTextFormField(
             controller: context.read<SignupCubit>().passwordController,
             hintText: 'Password',
@@ -105,7 +105,7 @@ class _SignupFormState extends State<SignupForm> {
               }
             },
           ),
-          verticalSpace(18),
+          18.heightBox,
           AppTextFormField(
             controller:
                 context.read<SignupCubit>().passwordConfirmationController,
@@ -130,7 +130,7 @@ class _SignupFormState extends State<SignupForm> {
               }
             },
           ),
-          verticalSpace(24),
+          24.heightBox,
           PasswordValidations(
             hasLowerCase: hasLowercase,
             hasUpperCase: hasUppercase,

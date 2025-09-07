@@ -1,7 +1,6 @@
-import 'package:doctor_app/core/helpers/spacing.dart';
+import 'package:doctor_app/core/extensions/spacing_extension.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class DoctorsBlueContainer extends StatelessWidget {
@@ -30,11 +29,11 @@ class DoctorsBlueContainer extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Book and\n schedule with\nnearest doctor",
+                  "Book and\nschedule with\nnearest doctor",
                   textAlign: TextAlign.start,
                   style: TextStyles.font18WhiteMedium,
                 ),
-                verticalSpace(16),
+                16.heightBox,
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () {},
@@ -54,10 +53,12 @@ class DoctorsBlueContainer extends StatelessWidget {
             ),
           ),
           Positioned(
-            right: 16,
+            right: 8.w,
             top: 0,
-            height: 200.h,
-            child: Image.asset('assets/images/home_doctor.png'),
+            child: Image.asset(
+              'assets/images/home_doctor.png',
+              height: 200.h,
+            ),
           )
         ],
       ),

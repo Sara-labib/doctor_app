@@ -1,7 +1,7 @@
 import 'package:doctor_app/core/theming/colors.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/svg.dart';
 
 class HomeTopBar extends StatelessWidget {
   const HomeTopBar({super.key});
@@ -21,13 +21,15 @@ class HomeTopBar extends StatelessWidget {
               "How Are You Today?",
               style: TextStyles.font12GrayRegular,
             ),
-            const Spacer(),
-            const CircleAvatar(
-              radius: 24.0,
-              backgroundColor: ColorsManager.lighterGray,
-              backgroundImage: AssetImage('assets/svgs/notification.svg'),
-            )
           ],
+        ),
+        const Spacer(),
+        CircleAvatar(
+          radius: 24.0,
+          backgroundColor: ColorsManager.lighterGray,
+          child: SvgPicture.asset(
+            "assets/svgs/notification.svg",
+          ),
         )
       ],
     );

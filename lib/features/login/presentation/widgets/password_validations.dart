@@ -1,4 +1,4 @@
-import 'package:doctor_app/core/helpers/spacing.dart';
+import 'package:doctor_app/core/extensions/spacing_extension.dart';
 import 'package:doctor_app/core/theming/colors.dart';
 import 'package:doctor_app/core/theming/styles.dart';
 import 'package:flutter/material.dart';
@@ -24,15 +24,15 @@ class PasswordValidations extends StatelessWidget {
     return Column(
       children: [
         buildValidationRow('At least 1 lowercase letter', hasLowerCase),
-        verticalSpace(2),
+        2.heightBox,
         buildValidationRow('At least 1 uppercase letter', hasUpperCase),
-        verticalSpace(2),
+        2.heightBox,
         buildValidationRow('At least 1 number ', hasNumber),
-        verticalSpace(2),
+        2.heightBox,
         buildValidationRow('At least special characters ', hasSpecialCharacter),
-        verticalSpace(2),
+        2.heightBox,
         buildValidationRow('At least 8 characters long', hasMinLength),
-        verticalSpace(2),
+        2.heightBox,
       ],
     );
   }
@@ -44,7 +44,7 @@ class PasswordValidations extends StatelessWidget {
           radius: 2.5,
           backgroundColor: ColorsManager.gray,
         ),
-        horizontalSpace(6),
+        6.widthBox,
         Text(
           text,
           style: TextStyles.font13DarkBlueRegular.copyWith(
