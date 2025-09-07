@@ -36,7 +36,7 @@ class _HomeApiService implements HomeApiService {
     )
         .compose(
           _dio.options,
-          '/specialization/index',
+          'specialization/index',
           queryParameters: queryParameters,
           data: _data,
         )

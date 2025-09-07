@@ -10,23 +10,26 @@ class DoctorsListViewItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  
     return Container(
       margin: EdgeInsets.only(bottom: 16.h),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-      ),
       child: Row(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.circular(12.0),
-            child: Image.asset(
-              "assets/images/doctor_list_view.jpg",
-              fit: BoxFit.cover,
-              width: 110.w,
-              height: 120.h,
-            ),
-          ),
+              borderRadius: BorderRadius.circular(50.0),
+              child: Image(
+                image: const AssetImage(
+                  "assets/images/doctor_list_view.jpg",
+                ),
+                fit: BoxFit.cover,
+                width: 110.w,
+                height: 120.h,
+              ),
+            
+         
+              ),
           16.widthBox,
+        
           Expanded(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
