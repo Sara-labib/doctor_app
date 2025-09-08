@@ -17,12 +17,14 @@ class HomeCubit extends Cubit<HomeState> {
       specializationList =
           specializationResponseModel.specializationDataList ?? [];
 
+      // getting the doctors list for the fitsr specialization by default.
+      getDoctorsList(specializationId: specializationList?.first?.id);
+
       emit(HomeState.specializationsSuccess(specializationList));
     }, failure: (error) {
       emit(HomeState.specializationsError(
           error: error.apiErrorModel.message ?? ''));
-    }
-    );
+    });
   }
 
   void getDoctorsList({required int? specializationId}) {
@@ -36,7 +38,7 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-///returns thie list of doctors based on the specialization id 
+  ///returns thie list of doctors based on the specialization id
   getDoctorsListBySpecializationId(specializationId) {
     return specializationList
         ?.firstWhere((specialization) => specialization?.id == specializationId)
