@@ -24,7 +24,7 @@ class SpecializationsBlocBuilder extends StatelessWidget {
               return setupSuccess(
                   specializationsList as SpecializationResponseModel);
             },
-            specializationsError: (errorHandler) => setupError(),
+            specializationsError: (error, message) => setupError(),
             orElse: () {
               return const SizedBox.shrink();
             });

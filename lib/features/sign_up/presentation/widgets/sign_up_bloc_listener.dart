@@ -1,3 +1,4 @@
+import 'package:doctor_app/core/networking/api_error_model.dart';
 import 'package:doctor_app/features/sign_up/presentation/cubit/sign_up_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -32,9 +33,6 @@ class SignupBlocListener extends StatelessWidget {
           signupSuccess: (signupResponse) {
             context.pop();
             showSuccessDialog(context);
-          },
-          signupError: (error) {
-            setupErrorState(context, error);
           },
         );
       },
@@ -73,7 +71,7 @@ class SignupBlocListener extends StatelessWidget {
     );
   }
 
-  void setupErrorState(BuildContext context, String error) {
+  void setupErrorState(BuildContext context, ApiErrorModel apiErrorModel) {
     context.pop();
     showDialog(
       context: context,
@@ -84,7 +82,7 @@ class SignupBlocListener extends StatelessWidget {
           size: 32,
         ),
         content: Text(
-          error,
+          apiErrorModel.getAllErrorMessages(),
           style: TextStyles.font15DarkBlueMedium,
         ),
         actions: [
